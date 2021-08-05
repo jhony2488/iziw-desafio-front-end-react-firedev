@@ -44,13 +44,13 @@
 </h2>
 
 - [x] Configurar style guide 
-- [] Desenvolver e realizar os testes
 - [] Listar todos os serviços
 - [] Buscar um único serviço
 - [] Solicitar serviço
 - [] Desenvolver o login
 - [] Desenvolver o logof
 - [] Buscar os dados de uma solicitação de serviço em específico
+- [] Desenvolver e realizar os testes
 
 <h2>Como usar</h2>
 

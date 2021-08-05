@@ -43,7 +43,7 @@
   Features
 </h2>
 
-- [] Configurar style guide 
+- [x] Configurar style guide 
 - [] Desenvolver e realizar os testes
 - [] Listar todos os serviços
 - [] Buscar um único serviço

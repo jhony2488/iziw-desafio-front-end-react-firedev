@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Script from 'next/script'
 import 'normalize.css'
 
 import styles from '../styles/Home.module.scss'
@@ -85,6 +84,11 @@ export default function Home() {
                     content="/favicons/ms-icon-144x144.png"
                 />
                 <meta name="theme-color" content="#ffffff" />
+                <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                />
                 <title>Create Next App</title>
                 <meta
                     name="description"
@@ -158,9 +162,6 @@ export default function Home() {
                     </span>
                 </a>
             </footer>
-            <>
-                <Script src="https://code.jquery.com/jquery-1.11.0.min.js" />
-            </>
         </div>
     )
 }

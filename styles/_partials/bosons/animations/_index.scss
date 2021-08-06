@@ -1,0 +1,13 @@
+@keyframes videosAnimation {
+    from {
+        margin-left: -6000px;
+    }
+    to {
+        margin-left: 0px;
+    }
+}
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}

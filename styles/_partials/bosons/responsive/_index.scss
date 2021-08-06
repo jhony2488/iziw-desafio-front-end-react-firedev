@@ -1,0 +1,26 @@
+// Mapa de breakpoints
+$breakpoints: (
+    xxxxsmall: 300px,
+    xxxmall: 375px,
+    xxsmall: 400px,
+    xsmall: 500px,
+    small: 641px,
+    medium: 769px,
+    large: 1025px,
+    largex: 1280px,
+    xlarge: 1440px,
+    xxlarge: 1921px,
+    xxxlarge: 3000px,
+) !default;
+//mixin breakpoints mobile-first
+@mixin responsive($breakpoint, $width: min) {
+    @if variable-exists(breakpoints) {
+        @if map-has-key($breakpoints, $width) {
+            @media (min-width: map-get($breakpoints, $breakpoint)) {
+                @media (max-width: map-get($breakpoints, $width) - 1) {
+                    @content;
+                }
+            }
+        }
+    }
+}

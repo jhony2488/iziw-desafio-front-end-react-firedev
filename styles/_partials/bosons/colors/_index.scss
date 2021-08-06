@@ -1,0 +1,23 @@
+// Mapa de cores com suas variáções fixas
+$colors: (
+    primary: $color-primary,
+    secondary: $color-secundary,
+    tertiary: $color-white,
+) !default;
+
+// Função de leitura de mapa
+@function color($color, $complementary: null) {
+    @if map-has-key($colors, $color) {
+        $type: map-get($colors, $color);
+        @if $complementary == null {
+            @if type-of($type) == map {
+                @return map-get(map-get($colors, $color), "base");
+            } @else {
+                @return map-get($colors, $color);
+            }
+        } @else {
+            @return map-get(map-get($colors, $color), $complementary);
+        }
+    }
+    @return #0000;
+}

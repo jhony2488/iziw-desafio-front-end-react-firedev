@@ -51,6 +51,7 @@
 - [] Desenvolver o logof
 - [] Buscar os dados de uma solicitação de serviço em específico
 - [] Desenvolver e realizar os testes
+- [x] Deploy da aplicação , em ambiente de produção
 
 <h2>Como usar</h2>
 

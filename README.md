@@ -119,7 +119,7 @@ $ npm run test || yarn test
   Link da demonstração da aplicação
 </h2>
 
-[Link](https://nodejs.org/en/)
+[https://iziw.netlify.app/](https://iziw.netlify.app/)
 
 <h2 id="tecnologias">🛠 Tecnologias</h2>
 

@@ -48,6 +48,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-uglify-es": "^3.0.0",
     "jest": "^27.0.6",
+    "postcss": "^8.3.6",
     "prettier": "^2.1.2"
   }
 }

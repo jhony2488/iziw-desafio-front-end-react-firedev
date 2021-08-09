@@ -7,6 +7,14 @@ import logo from '../../public/favicons/android-icon-192x192.png'
 import styles from '../../styles/molecules/Header.module.scss'
 
 export default function HeadComponent() {
+    const originalError = console.error
+
+    console.error = (...args) => {
+        if (/Warning.*Function components cannot be given refs/.test(args[0])) {
+            return
+        }
+        originalError.call(console, ...args)
+    }
     return (
         <header className={styles.header}>
             <div className={styles.header_wrapper}>

@@ -44,11 +44,12 @@
 </h2>
 
 - [x] Configurar style guide 
-- [] Listar todos os serviços
+- [x] Listar todos os serviços
+- [] Modal de perguntas para realizar a solicitação de um serviço
 - [] Buscar um único serviço
-- [] Solicitar serviço
 - [] Desenvolver o login
 - [] Desenvolver o logof
+- [] Pegar os dados de um único usuario
 - [] Buscar os dados de uma solicitação de serviço em específico
 - [] Desenvolver e realizar os testes
 - [x] Deploy da aplicação , em ambiente de produção

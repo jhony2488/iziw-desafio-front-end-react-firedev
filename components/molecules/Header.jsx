@@ -6,7 +6,7 @@ import React from 'react'
 import logo from '../../public/favicons/android-icon-192x192.png'
 import styles from '../../styles/molecules/Header.module.scss'
 
-export default function HeadComponent() {
+export default function HeadComponent(props) {
     const originalError = console.error
 
     console.error = (...args) => {
@@ -16,10 +16,10 @@ export default function HeadComponent() {
         originalError.call(console, ...args)
     }
     return (
-        <header className={styles.header}>
+        <header className={styles.header} id={props.id_router}>
             <div className={styles.header_wrapper}>
                 <div className={styles.header__logo}>
-                    <Link href="/">
+                    <Link href="/" >
                         <Image
                             src={logo}
                             alt="Iziw Logo"
@@ -28,8 +28,8 @@ export default function HeadComponent() {
                     </Link>
                 </div>
                 <nav className={styles.header_nav}>
-                    <Link href="/">Home</Link>
-                    <Link href="/login">Login</Link>
+                    <Link href="/" id="nav-home">Home</Link>
+                    <Link href="/login" id="nav-login">Login</Link>
                 </nav>
             </div>
         </header>

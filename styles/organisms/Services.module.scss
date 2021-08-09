@@ -1,0 +1,25 @@
+@import "./_partials/bosons/index";
+
+.services_section {
+    display: grid;
+    justify-items: center;
+    &_wrapper {
+        padding-left: 16px;
+        padding-right: 16px;
+        width: 100%;
+        max-width: 1440px;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    &__button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    @include responsive(xxxxsmall, xlarge) {
+        &_wrapper {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

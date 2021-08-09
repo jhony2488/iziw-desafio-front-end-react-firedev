@@ -1,0 +1,25 @@
+@import "./_partials/bosons/index";
+
+.footer {
+    width: 100vw;
+    min-height: 100px;
+    background: black;
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+    a {
+        text-align: center;
+        color: rgb(0, 81, 255);
+        margin-left: 4px;
+        &:hover {
+            color: white;
+        }
+    }
+    @include responsive(xxxxsmall, xlarge) {
+        
+    }
+}

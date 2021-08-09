@@ -1,0 +1,24 @@
+.service {
+    width: 240px;
+    height: 300px;
+    margin: 16px;
+    background-color: white;
+    border: none;
+    cursor:pointer;
+    &__image{
+        width: 200px;
+        border-radius: 100%;
+        height: 200px;
+        &:hover {
+            transition:2s;
+            transform: scale(1.3);
+        }
+    }
+    h2{
+        &:hover {
+            transition:1.5s;
+            transform: scale(1.3);
+        }
+    }
+    
+}

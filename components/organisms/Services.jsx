@@ -15,20 +15,32 @@ export default function Services() {
     const [serviceGetItems, setServices] = useState([])
     const [serviceGet, setService] = useState({})
 
-    const [form, setForm] = useState([])
+    const [form, setForm] = useState({})
     const [show, setShow] = useState(false)
+    const [showResponse, setShowResponse] = useState(false)
+    const [showResponseErr, setShowResponseErr] = useState(false)
 
     const handle = () => setShow(!show)
+    const handleResponse = () => setShowResponse(!showResponse)
+    const handleResponseErr = () => setShowResponseErr(!showResponseErr)
 
     function getDatas(e) {
         const { value, name } = e.target
-        form[name].nome = value
-        setForm([])
+        form[name] = value
+        const formSet = { [name]: value, ...form }
+        setForm(formSet)
+        console.log(form)
     }
-    async function setRequestService() {
-        const respostas = await form.perguntas.map((itemForm) => {
-            return { pergunta_id: itemForm.id, resposta: 'PHP' }
+    async function setRequestService(e) {
+        await e.preventDefault()
+        const respostas = await serviceGet.perguntas.map((itemForm) => {
+            return {
+                pergunta_id: itemForm.id,
+                resposta: form[`${itemForm.input}-${itemForm.id}`],
+            }
         })
+        console.log('respostas')
+        console.log(respostas)
         await axios
             .post('http://api.iziw.com.br/api/solicitacoes-de-servico', {
                 servico_id: serviceGet.id,
@@ -38,10 +50,12 @@ export default function Services() {
                 respostas,
             })
             .then((res) => {
-                console.log(res)
+                handle()
+                handleResponse()
             })
             .catch((err) => {
-                console.log(err)
+                handle()
+                handleResponseErr()
             })
     }
     function loadApiService(id) {
@@ -76,7 +90,9 @@ export default function Services() {
                                 subservicosSub.push(...item.sub_servicos)
 
                                 item.sub_servicos.map((itemSub) => {
-                                    return subservicosSub.push(...itemSub.sub_servicos)
+                                    return subservicosSub.push(
+                                        ...itemSub.sub_servicos
+                                    )
                                 })
                                 return servicesGet.push(...subservicosSub)
                             }
@@ -138,16 +154,16 @@ export default function Services() {
                                         {pergunta.escolhas === null ? (
                                             <input
                                                 type="text"
-                                                name={pergunta.input}
-                                                id={pergunta.input}
+                                                name={`${pergunta.input}-${pergunta.id}`}
+                                                id={`${pergunta.input}-${pergunta.id}`}
                                                 value={form.email}
                                                 placeholder={pergunta.conteudo}
                                                 onChange={getDatas}
                                             />
                                         ) : (
                                             <select
-                                                name={pergunta.input}
-                                                id={pergunta.input}
+                                                name={`${pergunta.input}-${pergunta.id}`}
+                                                id={`${pergunta.input}-${pergunta.id}`}
                                                 placeholder={pergunta.conteudo}
                                                 onChange={getDatas}>
                                                 {pergunta.escolhas.map(
@@ -178,8 +194,39 @@ export default function Services() {
                     <Button variant="secondary" onClick={handle}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handle}>
-                        Save Changes
+                </Modal.Footer>
+            </Modal>
+            <Modal show={showResponse} onHide={handleResponse}>
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        Serviços solicitado com sucesso ✅
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>
+                        Seu serviços de {serviceGet.nome} foi solicitado com
+                        Sucesso
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleResponse}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <Modal show={showResponseErr} onHide={handleResponseErr}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Erro na solicitação de serviço 🚨</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>
+                        Erro na solicitação de serviço de {serviceGet.nome},
+                        tente novamente
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleResponseErr}>
+                        Close
                     </Button>
                 </Modal.Footer>
             </Modal>

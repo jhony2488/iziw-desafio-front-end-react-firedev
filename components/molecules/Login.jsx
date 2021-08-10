@@ -19,8 +19,6 @@ export default function Login() {
             .then((token) => {
                 console.log(token.data)
                 localStorage.setItem('token_login', token.data.access_token)
-                alert(token.data.access_token)
-
                 axios
                     .post('http://api.iziw.com.br/api/auth/me', null, {
                         headers: {
@@ -28,7 +26,6 @@ export default function Login() {
                         },
                     })
                     .then((get) => {
-                        alert('jhony')
                         console.log(get)
                         localStorage.setItem('user', JSON.stringify(get.data))
                         let user = localStorage.getItem('user')
@@ -39,7 +36,6 @@ export default function Login() {
                     })
                     .catch((err) => {
                         console.log(err)
-                        alert(err)
                     })
                 console.log('jhony')
                 setForm({ email: '', password: '' })
@@ -49,7 +45,7 @@ export default function Login() {
             })
     }
     useEffect(() => {
-        const user = localStorage.getItem('user')
+        const user = JSON.parse(localStorage.getItem('user'))
         const tokenUser = localStorage.getItem('token_login')
         if (tokenUser) {
             if (user) {

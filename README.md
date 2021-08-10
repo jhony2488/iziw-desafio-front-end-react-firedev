@@ -45,13 +45,11 @@
 
 - [x] Configurar style guide 
 - [x] Listar todos os serviços
-- [] Modal de perguntas para realizar a solicitação de um serviço
-- [] Buscar um único serviço
-- [] Desenvolver o login
-- [] Desenvolver o logof
-- [] Pegar os dados de um único usuario
-- [] Buscar os dados de uma solicitação de serviço em específico
-- [] Desenvolver e realizar os testes
+- [x] Modal de perguntas para realizar a solicitação de um serviço
+- [x] Buscar um único serviço
+- [x] Desenvolver o login
+- [x] Pegar os dados de um único usuario
+- [x] Buscar os dados de uma solicitação de serviço em específico
 - [x] Deploy da aplicação , em ambiente de produção
 
 <h2>Como usar</h2>
@@ -103,18 +101,6 @@ $ npm run build || yarn build
 $ npm run start || yarn start
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000>
-```
-
-<h2 id="tests">🛠 Testes</h2>
-
-### Instale o Node.js atravez do link abaixo caso ainda não o tenha instalado
-
-- [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
-
-```bash
-# Executar os testes
-$ npm run test || yarn test
-
 ```
 
 <h2 id="app-demo">  

@@ -12,7 +12,7 @@ export default function Login() {
     async function login(e) {
         await e.preventDefault()
         await axios
-            .post('http://api.iziw.com.br/api/auth/login', {
+            .post('https://api.iziw.com.br/api/auth/login', {
                 email: form.email,
                 password: form.password,
             })
@@ -20,7 +20,7 @@ export default function Login() {
                 console.log(token.data)
                 localStorage.setItem('token_login', token.data.access_token)
                 axios
-                    .post('http://api.iziw.com.br/api/auth/me', null, {
+                    .post('https://api.iziw.com.br/api/auth/me', null, {
                         headers: {
                             Authorization: `Bearer ${token.data.access_token}`,
                         },

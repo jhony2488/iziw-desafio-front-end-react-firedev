@@ -30,7 +30,7 @@ export default function UserAreaRequestServices() {
     function getService() {
         let servicesGet = []
         axios
-            .get('http://api.iziw.com.br/api/servicos')
+            .get('https://api.iziw.com.br/api/servicos')
             .then((items) => {
                 servicesGet = items.data
                 servicesGet.map((item) => {
@@ -68,7 +68,7 @@ export default function UserAreaRequestServices() {
         }
         function loadApiServices() {
             axios
-                .get('http://api.iziw.com.br/api/solicitacoes-de-servico', {
+                .get('https://api.iziw.com.br/api/solicitacoes-de-servico', {
                     headers: {
                         Authorization: `Bearer ${tokenUser}`,
                     },

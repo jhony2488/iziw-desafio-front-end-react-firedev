@@ -1,16 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable import/no-named-as-default */
 import axios from 'axios'
 import Router, { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react'
-import { Button /* Pagination */ } from 'react-bootstrap'
+import { Button  } from 'react-bootstrap'
 
 import styles from '../../styles/Home.module.scss'
 import Title from '../atoms/TItlePage.jsx'
 import Footer from '../molecules/Footer.jsx'
 import Head from '../molecules/Head.jsx'
 import Header from '../molecules/Header.jsx'
-
-// import { useSelector, useDispatch } from 'react-redux'
 
 export default function UserAreaRequestServices() {
     const [serviceRequestGetItem, setServiceRequest] = useState({})
@@ -38,7 +37,7 @@ export default function UserAreaRequestServices() {
         function loadApiServices() {
             axios
                 .get(
-                    `http://api.iziw.com.br/api/solicitacoes-de-servico/${id}`,
+                    `https://api.iziw.com.br/api/solicitacoes-de-servico/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${tokenUser}`,
@@ -52,7 +51,7 @@ export default function UserAreaRequestServices() {
                     console.log(serviceRequestGetItem)
                     axios
                         .get(
-                            `http://api.iziw.com.br/api/servicos/${item.data.servico_id}`
+                            `https://api.iziw.com.br/api/servicos/${item.data.servico_id}`
                         )
                         .then((itemService) => {
                             console.log(itemService.data)

@@ -42,7 +42,7 @@ export default function Services() {
         console.log('respostas')
         console.log(respostas)
         await axios
-            .post('http://api.iziw.com.br/api/solicitacoes-de-servico', {
+            .post('https://api.iziw.com.br/api/solicitacoes-de-servico', {
                 servico_id: serviceGet.id,
                 valor: 500,
                 aceita_contra_proposta: true,
@@ -60,7 +60,7 @@ export default function Services() {
     }
     function loadApiService(id) {
         axios
-            .get(`http://api.iziw.com.br/api/servicos/${id}`)
+            .get(`https://api.iziw.com.br/api/servicos/${id}`)
             .then((items) => {
                 const serviceGet = items.data
                 console.log('service id:')
@@ -80,7 +80,7 @@ export default function Services() {
         function loadApiServices() {
             if (servicesGet !== []) {
                 axios
-                    .get('http://api.iziw.com.br/api/servicos')
+                    .get('https://api.iziw.com.br/api/servicos')
                     .then((items) => {
                         servicesGet = items.data
                         servicesGet.map((item) => {
